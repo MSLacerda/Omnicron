@@ -50,17 +50,17 @@ import omnicron.min.js into your html project.
 
 ## Methods and Attributes
 
-app: "Name of APP, Types": <String>
-___
+| Method/Attr   | Information                   | Types    |
+| ------------- |:-----------------------------:| --------:|
+| run           | Will execute if the app exists| Function |
+| app           |Name of the app, need be the same on app Tag | String |
+| before           | Will execute before the run executes| Function |
+| render           | Render a element inside the app | Object |
+| render.url           | Path of the template | String |
+| render.onSuccess           | Will execute when rendering is complete | Function |
 
-run: "Will run if app exists", Types: <Function>
-___
 
-before: <Will run before run executes>, Types: <Function>
-___
 
-render: "Render a template file in app", Types: <Object>, {url: "URL to Template" <String>, onSuccess: "Call to run on success of rendering" <Function> }>
-___
 
 
 
