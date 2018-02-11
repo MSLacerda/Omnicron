@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <title></title>
 </head>
 <body>
+  <om-cron om-name="teste">
+
+  </om-cron>
+
+  <script src="src/js/omni.js"></script>
+  <script>
     
+    (() => {
+      new Omnicron({
+        app: 'burning',
+        run: () => {
+          
+        }
+      });
 
-    <omnicron>
-
-    </omnicron>
-
-
-    <script src="src/js/omni.js"></script>
+    })()
+  
+  </script>
 </body>
 </html>

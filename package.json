@@ -1,0 +1,31 @@
+{
+  "name": "omnicron",
+  "version": "1.0.0",
+  "description": "Minimal library to organize webpages",
+  "main": "src/js/omni.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MSLacerda/Omnicron.git"
+  },
+  "keywords": [
+    "Omnicron",
+    "js",
+    "library",
+    "libray",
+    "javascript",
+    "minimal",
+    "light"
+  ],
+  "author": "Matheus Soares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MSLacerda/Omnicron/issues"
+  },
+  "homepage": "https://github.com/MSLacerda/Omnicron#readme",
+  "dependencies": {
+    "min-server": "^1.0.0"
+  }
+}
