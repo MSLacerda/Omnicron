@@ -35,11 +35,32 @@ import omnicron.min.js into your html project.
       new Omnicron({
         app: 'burning',
         run: () => {
-          console.log("Hello World")
+
+        },
+        render: {
+          url: 'tests/files/file.html',
+          onSuccess: () => {
+            console.log("rendered!")
+          }
         }
       });
     })()
 
 ``` 
+
+## Methods and Attributes
+
+app: "Name of APP, Types": <String>
+___
+
+run: "Will run if app exists", Types: <Function>
+___
+
+before: <Will run before run executes>, Types: <Function>
+___
+
+render: "Render a template file in app", Types: <Object>, {url: "URL to Template" <String>, onSuccess: "Call to run on success of rendering" <Function> }>
+___
+
 
 
