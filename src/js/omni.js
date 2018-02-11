@@ -17,7 +17,16 @@
             for (var index = 0; index < _this.virtualElements.length; index++) {
                 var element = _this.virtualElements[index];
                 if (cronSettings.app === element.attributes['om-name'].textContent)
-                    _this.application.run();
+                    if (!!_this.application.before){
+                        new Promise(function (resolve, reject) {
+                            _this.application.before(resolve)
+                        }).then(function () {
+                            _this.application.run();
+                        })
+                    }else{
+                        _this.application.run();
+                    }
+                    
             }
 
         }

@@ -4,7 +4,13 @@
   <title></title>
 </head>
 <body>
-  <om-cron om-name="local">
+  <om-cron om-name="burning">
+    <button id="click">
+      Liked Burn
+    </button>
+  </om-cron>
+
+  <om-cron om-name="locked">
 
   </om-cron>
 
@@ -13,11 +19,23 @@
     
     (() => {
       new Omnicron({
-        app: 'burning',
+        app: 'burningdown',
         run: () => {
-          console.log("Hello World")
-        }
+          
+          var virtualButton = document.getElementById('click');
+          virtualButton.addEventListener("click", () => {
+            console.log('Oh Yeah!');
+          })
+
+        },
       });
+
+      new Omnicron({
+        app: 'another',
+        run: () => {
+          console.log('another element')
+        }
+      })
     })()
   
   </script>
