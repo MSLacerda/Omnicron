@@ -21,13 +21,14 @@
       new Omnicron({
         app: 'burningdown',
         run: () => {
-          
-          var virtualButton = document.getElementById('click');
-          virtualButton.addEventListener("click", () => {
-            console.log('Oh Yeah!');
-          })
 
         },
+        render: {
+          url: 'tests/files/file.html',
+          onSuccess: () => {
+
+          }
+        }
       });
 
       new Omnicron({
@@ -36,6 +37,7 @@
           console.log('another element')
         }
       })
+
     })()
   
   </script>

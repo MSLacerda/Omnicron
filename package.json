@@ -1,6 +1,6 @@
 {
   "name": "omnicron",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minimal library to organize webpages",
   "main": "src/js/omni.js",
   "scripts": {
