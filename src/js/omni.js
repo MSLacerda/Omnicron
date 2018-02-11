@@ -15,7 +15,7 @@
         var _this = this;
         _this.URL = new String();
         _this.URL = normalizePath(path);
-        
+
         if (window.XMLHttpRequest)
             _this.xhr = new XMLHttpRequest();
         else if (window.ActiveXObject) {
@@ -30,17 +30,28 @@
 
     // HTTP Quest GET Method    
     HttpQuest.prototype.GET = function (callback) {
-        var _this = this;
+        var _this = this;                
         try {
-            _this.xhr.open("GET", _this.URL, true);
-            _this.xhr.responseType = "document";
             _this.xhr.onreadystatechange = function () {
-
+                if (_this.xhr.readyState == 4) {
+                    callback(_this.xhr.responseText);
+                }
             }
+            _this.xhr.open("GET", _this.URL, true);
             _this.xhr.send();
         } catch (error) {
             console.error("Error in XHR: " + error.toString())
         }
+    }
+
+    function findApp(name, elements) {
+        for (var index = 0; index < elements.length; index++) {
+            var element = elements[index];
+            if (name === element.attributes['om-name'].textContent)
+                return element;
+        }
+
+        return false;
     }
 
     var evaluateApp = function () {
@@ -65,12 +76,18 @@
                     } else {
                         _this.application.run();
                     }
-
             }
 
             if (!!cronSettings.render) {
-                var http = new HttpQuest(cronSettings.render.url).GET(cronSettings.render.onSuccess)
-            }
+                var http = new HttpQuest(cronSettings.render.url);
+                http.GET(function(element) {
+                    var el = findApp(_this.application.app, _this.virtualElements)
+                    if (el) {
+                        el.innerHTML = element;
+                        cronSettings.render.onSuccess();
+                    }
+                });
+            }   
 
         }
         return Omni;

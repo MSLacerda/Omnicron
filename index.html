@@ -5,9 +5,7 @@
 </head>
 <body>
   <om-cron om-name="burning">
-    <button id="click">
-      Liked Burn
-    </button>
+
   </om-cron>
 
   <om-cron om-name="locked">
@@ -19,14 +17,14 @@
     
     (() => {
       new Omnicron({
-        app: 'burningdown',
+        app: 'burning',
         run: () => {
 
         },
         render: {
           url: 'tests/files/file.html',
           onSuccess: () => {
-
+            console.log("rendered!")
           }
         }
       });
