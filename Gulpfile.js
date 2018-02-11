@@ -5,7 +5,10 @@ var connect = require('connect')
 var connectLivereload = require('connect-livereload')
 var opn = require('opn')
 var gulpLivereload = require('gulp-livereload')
-
+var uglify = require("gulp-uglify")
+var minify = require('gulp-minify')
+var gutil = require("gulp-util")
+var rename = require("gulp-rename")
 /*
  * Main Config
  * ===========
@@ -65,3 +68,18 @@ gulp.task('connect', function () {
     //   now we can view our `index.html` in the root under `localhost:port`
     .listen(config.servingPort)
 })
+
+// APP CONFIGS
+
+gulp.task('rotine', function () {
+  return gulp.src('src/js/omni.js')
+  .pipe(rename('omni.min.js'))
+  .pipe(uglify())
+  .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+  .pipe(gulp.dest('dist'))
+})
+
+gulp.task('build', ['rotine'], function () {
+
+})
+

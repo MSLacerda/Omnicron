@@ -1,19 +1,21 @@
 'use strict';
 
-(() => {
+(function () {
 
-    var virtualOmni = document.getElementsByTagName('om-cron')
+    var virtualOmni = document.getElementsByTagName('om-cron');
     
-    const evaluateApp = () => {
+    var evaluateApp = function () {
         function Omni(cronSettings) {
+            // THIS FUNCTION TEST AND EXECUTES THE RUN METHOD IF THE ELEMENT WITH THAM CRON NAME EXISTS
+
             var _this = this;
             _this.application = new Object();
             Object.assign(_this.application, cronSettings);
 
             _this.virtualElements = document.getElementsByTagName('om-cron');
 
-            for (let index = 0; index < _this.virtualElements.length; index++) {
-                const element = _this.virtualElements[index];
+            for (var index = 0; index < _this.virtualElements.length; index++) {
+                var element = _this.virtualElements[index];
                 if (cronSettings.app === element.attributes['om-name'].textContent)
                     _this.application.run();
             }
@@ -27,7 +29,7 @@
     }
 })()
 
-window.onload = (event) => {
+window.onload = function(event) {
     // DEFINE TAGS OF LIBRARY
     var Omni = document.registerElement('om-cron');
 }

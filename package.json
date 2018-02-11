@@ -4,6 +4,7 @@
   "description": "Minimal library to organize webpages",
   "main": "src/js/omni.js",
   "scripts": {
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +28,12 @@
   "homepage": "https://github.com/MSLacerda/Omnicron#readme",
   "dependencies": {
     "min-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8"
   }
 }
