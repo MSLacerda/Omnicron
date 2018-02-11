@@ -1,3 +1,7 @@
+var gulp = require('gulp')
+var rename = require("gulp-rename")
+var uglify = require("gulp-uglify")
+
 gulp.task('rotine', function () {
   return gulp.src('src/js/omni.js')
   .pipe(rename('omni.min.js'))
