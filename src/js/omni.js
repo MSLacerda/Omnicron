@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-
+    var Omni = document.registerElement('om-cron');    
     var virtualOmni = document.getElementsByTagName('om-cron');
 
     // Normalize PATHS
@@ -56,7 +56,7 @@
 
     var evaluateApp = function () {
         function Omni(cronSettings) {
-            // THIS FUNCTION TEST AND EXECUTES THE RUN METHOD IF THE ELEMENT WITH THAM CRON NAME EXISTS
+            // THIS FUNCTION TEST AND EXECUTES THE RUN METHOD IF THE ELEMENT WITH The CRON NAME EXISTS
 
             var _this = this;
             _this.application = new Object();
@@ -80,13 +80,22 @@
 
             if (!!cronSettings.render) {
                 var http = new HttpQuest(cronSettings.render.url);
-                http.GET(function(element) {
-                    var el = findApp(_this.application.app, _this.virtualElements)
-                    if (el) {
-                        el.innerHTML = element;
-                        cronSettings.render.onSuccess();
+
+                try {
+                    http.GET(function(element) {
+                        var el = findApp(_this.application.app, _this.virtualElements)
+                        if (el) {
+                            el.innerHTML = element;
+                            cronSettings.render.onSuccess();
+                        }
+                    });
+                } catch (error) {
+                    if (!!cronSettings.render.onFailure) {
+                        cronSettings.render.onFailure(error);
+                    }else{
+                        console.error("Unexpected error: render() failure - " + error.toString());
                     }
-                });
+                } 
             }   
 
         }
@@ -100,5 +109,4 @@
 
 window.onload = function (event) {
     // DEFINE TAGS OF LIBRARY
-    var Omni = document.registerElement('om-cron');
 }
