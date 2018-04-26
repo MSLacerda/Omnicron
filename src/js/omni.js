@@ -7,7 +7,7 @@
     // Normalize PATHS
     function normalizePath(string) {
         if (string !== "") return string;
-        else return false
+        return false
     }
 
     // HTTP Quest Object
