@@ -13,7 +13,6 @@
     // HTTP Quest Object
     function HttpQuest(path) {
         var _this = this;
-        _this.URL = new String();
         _this.URL = normalizePath(path);
 
         if (window.XMLHttpRequest)
