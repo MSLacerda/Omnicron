@@ -1,7 +1,7 @@
 # Omnicron
 Light and minimal library to organize js of webpages
 
-***Obs. This project is a old-study and have a lot of bugs and anti-patterns use at your own risk.***
+***Obs. This is a old-study project and have a lot of bugs and anti-patterns use at your own risk.***
 
 ## Source Code 
 
